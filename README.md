@@ -1,7 +1,7 @@
 ## Assessment 1 & 2
 You can check my following codes for assessment 1 & 2 that can be found in root directory:
-  > assessment-1.js
-  > assessment-2.js
+* assessment-1.js
+* assessment-2.js
 
 ## Assessment 3
 This project depends on nodejs 12.6.0, separated with two directories: `client` & `server`.
