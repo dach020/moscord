@@ -1,0 +1,31 @@
+.container-fluid
+  .row
+    .col-md-2.news-sources
+      .loading(*ngIf="isLoading && !sources; else listSources")
+        label Loading...
+      ng-template(#listSources)
+        mat-nav-list
+          a(mat-list-item, *ngFor="let items of sources", (click)="onSelectSource(items)", [ngClass]="{ 'active' : items.isSelected }")
+            h5 {{ items.name }}
+    .col-md-10
+      .loading(*ngIf="isLoading")
+        label Loading...
+      .articles-container(*ngIf="!isLoading")
+        .header-wrapper(*ngIf="selectedSource")
+          h2 {{ selectedSource.name }}
+          label.category {{ selectedSource.category }}
+        mat-grid-list(cols="3", [gutterSize]="'14px'")
+          mat-grid-tile(*ngFor="let item of articles")
+            mat-card
+              img(mat-card-image, [src]="item.urlToImage") 
+              mat-card-content
+                h4.card-title {{ item.title }}
+                small.date {{ formatDate(item.publishedAt) }}
+                p.card-text {{ item.content }}
+      .pagination(*ngIf="totalPages && !isLoading")
+        label {{ currentPage === 1 ? 1 : (currentPage * 10) - 9 }} - {{ currentPage * 10 }} of {{ totalPages }}
+        .button-wrapper
+          button.btn.btn-light((click)="onNavigatePage('dec')", [disabled]="!((currentPage - 1) > 0)")
+            i.glyphicon.glyphicon-menu-left
+          button.btn.btn-light((click)="onNavigatePage('inc')", [disabled]="!(((currentPage * 10) + 1) < totalPages)")
+            i.glyphicon.glyphicon-menu-right

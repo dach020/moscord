@@ -1,0 +1,53 @@
+.container-fluid
+  .pagination
+    display flex
+    flex-direction row
+    align-items center
+    justify-content flex-end
+    label
+      font-size 13px
+    .button-wrapper
+      margin-left 24px
+      button
+        background-color #efefef
+        height 40px
+        width 40px
+        border-radius 32px
+      button:first-child
+        margin-right 4px
+  .news-sources
+    height 100vh
+    top 0px
+    padding-bottom 48px
+    position sticky
+    overflow-y scroll
+  .articles-container
+    padding-top 24px
+    .header-wrapper
+      margin-bottom 18px
+      h2
+        margin-bottom 4px
+      label.category
+        text-transform uppercase
+        color #0c77ef
+        letter-spacing 0.2em
+    /deep/figure.mat-figure
+      align-items flex-start !important
+    .mat-card
+      padding-left 0px
+      padding-right 0px
+      box-shadow none !important
+      .mat-card-image
+        height 200px
+        object-fit cover
+      .mat-card-content
+        h4
+          margin-bottom 8px
+        small.date
+          color gray
+          margin-bottom 8px
+          display block
+        p
+          text-align justify
+  .loading
+    padding-top 24px
